@@ -1,0 +1,68 @@
+html, body {
+  height: 90%;
+  width: 100%;
+  /* make sure app window is in center of screen */
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+#app-window {
+  /* border: solid 1px; */
+  width: 100%;
+  max-width: 1200px;
+  min-width: 600px;
+}
+
+/* "Choose an exercise" title */
+h1 {
+  text-align: center;
+}
+
+#chromatic-scale {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.scale-note {
+  opacity: 0.5;
+}
+
+#visualizer {
+  /* size */
+  height: 300px;
+  width: 95%;
+  /* position */
+  position: relative;
+  left: 2.5%;
+  top: -300px;
+  z-index: 2;
+}
+
+#timers {
+  /* children settings */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* size */
+  width: 20%;
+  /* position */
+  position: relative;
+  top: -260px;
+  margin: 0 auto;
+
+}
+
+.timer {
+  width: 30%;
+  font-size: 1.5em;
+}
+
+#exercise-list {
+  position: relative;
+  top: -280px;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<head>
+  <title>LearnGuitarTheory</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="exerciselist.css">
+  <link rel="stylesheet" href="fretboard.css">
+  <script src="scale.js"></script>
+  <script src="exercise.js"></script>
+  <script src="notevalues.js"></script>
+</head>
+<body>
+
+  <!-- Window around application -->
+  <div id="app-window">
+
+    <!-- Title -->
+    <h1>Learn Guitar Theory</h1>
+
+    <!-- Interactive chromatic scale -->
+    <div id="chromatic-scale">
+      <div id = "n1" class="scale-note">A</div>
+      <div id = "n2" class="scale-note">A#/Bb</div>
+      <div id = "n3" class="scale-note">B</div>
+      <div id = "n4" class="scale-note">C</div>
+      <div id = "n5" class="scale-note">C#/Db</div>
+      <div id = "n6" class="scale-note">D</div>
+      <div id = "n7" class="scale-note">D#/Eb</div>
+      <div id = "n8" class="scale-note">E</div>
+      <div id = "n9" class="scale-note">F</div>
+      <div id = "n10" class="scale-note">F#/Gb</div>
+      <div id = "n11" class="scale-note">G</div>
+      <div id = "n12" class="scale-note">G#/Ab</div>
+
+    </div>
+
+   <!-- The fretboard -->
+    <div id="fretboard">
+      <!-- The fretboard strings -->
+      <div id="strings">
+        <div id="guitar-string-1" class="guitar-string"></div>
+        <div id="guitar-string-2" class="guitar-string"></div>
+        <div id="guitar-string-3" class="guitar-string"></div>
+        <div id="guitar-string-4" class="guitar-string"></div>
+        <div id="guitar-string-5" class="guitar-string"></div>
+        <div id="guitar-string-6" class="guitar-string"></div>
+      </div>
+      <!-- The fretboard freets -->
+      <div id="frets">
+        <div id="guitar-nut" class="guitar-fret"></div>
+        <div id="guitar-fret-1" class="guitar-fret"></div>
+        <div id="guitar-fret-2" class="guitar-fret"></div>
+        <div id="guitar-fret-3" class="guitar-fret"></div>
+        <div id="guitar-fret-4" class="guitar-fret"></div>
+        <div id="guitar-fret-5" class="guitar-fret"></div>
+        <div id="guitar-fret-6" class="guitar-fret"></div>
+        <div id="guitar-fret-7" class="guitar-fret"></div>
+        <div id="guitar-fret-8" class="guitar-fret"></div>
+        <div id="guitar-fret-9" class="guitar-fret"></div>
+        <div id="guitar-fret-10" class="guitar-fret"></div>
+        <div id="guitar-fret-11" class="guitar-fret"></div>
+      </div>
+      <!-- The fret markers -->
+      <div id="fret-markers">
+          <div id="fret-marker-1" class="fret-marker"></div>
+          <div id="fret-marker-2" class="fret-marker"></div>
+          <div id="fret-marker-3" class="fret-marker"></div>
+          <div id="fret-marker-3" class="fret-marker"></div>
+      </div>
+      <!-- The fretboard notes -->
+      <div id="notes"></div>
+    </div>
+    <canvas id="visualizer"></canvas>
+
+    <!-- Timer -->
+    <div id="timers">
+        <div id="timer-m" class="timer">--</div>
+        <div id="timer-s" class="timer">--</div>
+        <div id="timer-cs" class="timer">--</div>
+      </div>
+
+    <!-- Exercises container -->
+    <div id='exercise-list'>
+        <h2>Choose an exercise:</h2>
+        <!-- Find Notes -->
+        <div id="note-exercise" class="exercise-option">
+          <div class="center-text margin">1. Find all</div>
+          <select id="notes-selector" class="margin">
+              <option>A</option>
+              <option>A#/Bb</option>
+              <option>B</option>
+              <option>C</option>
+              <option>C#/Db</option>
+              <option>D</option>
+              <option>D#/Eb</option>
+              <option>E</option>
+              <option>F</option>
+              <option>F#/Gb</option>
+              <option>G</option>
+              <option>G#/Ab</option>
+          </select>
+          <div class="center-text margin">notes on fretboard</div>
+          <button id="notes-start-btn" class="margin" onclick="startExercise('notes-start-btn')">Start</button>
+        </div>
+        <!-- Find Scales -->
+        <div id="scale-exercise" class="exercise-option">
+            <div class="center-text margin">2. Find all notes in </div>
+            <select id='scales-key-selector' class="margin">
+                <option>A</option>
+                <option>A#/Bb</option>
+                <option>B</option>
+                <option>C</option>
+                <option>C#/Db</option>
+                <option>D</option>
+                <option>D#/Eb</option>
+                <option>E</option>
+                <option>F</option>
+                <option>F#/Gb</option>
+                <option>G</option>
+                <option>G#/Ab</option>
+            </select>
+            <select id='scale-selector' class="margin">
+                <option value='getMajorScale'>Major</option>
+                <option value='getMinoScale'>Minor</option>
+                <option value='getMajorPentatonicScale'>Major Pentatonic</option>
+                <option value='getMinorPentatonicScale'>Minor Pentatonic</option>
+            </select>
+            <div class="center-text margin">scale</div>
+            <button id="scales-start-btn" class="margin" onclick="startExercise('scales-start-btn')">Start</button>
+          </div>
+          <!-- Find Chords -->
+          <div id="chord-exercise" class="exercise-option">
+            <div class="center-text margin">3. Find all notes in </div>
+            <select id='chord-key-selector' class="margin">
+                <option>A</option>
+                <option>A#/Bb</option>
+                <option>B</option>
+                <option>C</option>
+                <option>C#/Db</option>
+                <option>D</option>
+                <option>D#/Eb</option>
+                <option>E</option>
+                <option>F</option>
+                <option>F#/Gb</option>
+                <option>G</option>
+                <option>G#/Ab</option>
+            </select>
+            <select id='chord-selector' class="margin">
+                <option value='getMajorChord'>Major</option>
+                <option value='getMinorChord'>Minor</option>
+            </select>
+            <div class="center-text margin">chord</div>
+            <button id="chord-start-btn" class="margin" onclick="startExercise('chord-start-btn')">Start</button>
+          </div>
+      </div> <!-- Exercise list end  -->
+  </div> <!-- App window end  -->
+
+  <!-- Script responsible for generating sounds that each note will make -->
+  <script src="audio.js"></script>
+  <!-- Script responsible for generating fretboard notes -->
+  <script src="fretboard.js"></script>
+</body>
+</html>

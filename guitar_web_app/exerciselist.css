@@ -1,0 +1,32 @@
+.exercise-option {
+  /* size */
+  height: 50px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  /* position */
+  position: relative;
+  left: 5%;
+  display: flex;
+  align-content: center;
+}
+
+.exercise-option select{
+  font-size: 1.1em;
+}
+
+.exercise-option button{
+  font-size: 1.1em;
+}
+
+.margin {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* centers text in divs */
+.center-text {
+  display: flex;
+  align-items: center;
+}
